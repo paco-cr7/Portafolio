@@ -1,7 +1,11 @@
+using Portafolio.Servicios;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddTransient<IRepositorioProyectos, RepositorioProyectos>();//Aqui en program se configuran las clases que queramos tener para inyeccion de dependencias
+builder.Services.AddTransient<IServicioEmail, ServicioEmailSendgrid>();
 
 var app = builder.Build();
 
